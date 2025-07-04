@@ -22,9 +22,15 @@
             <button id="btn-clear" class="limpar"><i class="fa-solid fa-broom"></i></button>
         </form>
 
-        <div class="filter">
-            <input id="input-filter" type="text" placeholder="Digite um status">
+        <div class="order">
+            <input id="input-order" type="text" placeholder="Digite um status">
             <button id="btn-search"><i class="fa-solid fa-magnifying-glass"></i></button>
+            <select class="order-select">
+                <option class="a-z" value="a-z">A-Z</option>
+                <option class="z-a" value="z-a">Z-A</option>
+                <option class="comprado-order" value="comprado">Status "Comprado"</option>
+                <option value="pendente-order">Status "Pendente"</option>
+            </select>
         </div>
 
         <ul id="list-items">
