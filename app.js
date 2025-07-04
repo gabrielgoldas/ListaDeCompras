@@ -27,7 +27,7 @@ function renderList(status) {
     counter()
 
     items.forEach((item, index) => {
-        if (status && item.status !== status) return;
+        if (status && item.status !== status) return
         // li
         const li = document.createElement('li')
         const span = document.createElement('span')
@@ -35,10 +35,12 @@ function renderList(status) {
         li.appendChild(span)
 
         const divFilterAndTrash = document.createElement('div')
+        divFilterAndTrash.className = 'filterAndTrash'
 
         // select bought or pending
         const select = document.createElement('select')
-        select.id = 'status'
+        // select.id = 'status'
+        select.classList.add(item.status)
         select.name = 'status'
 
         const bought = document.createElement('option')
@@ -56,6 +58,7 @@ function renderList(status) {
             pending.selected = true
         }
 
+
         select.appendChild(bought)
         select.appendChild(pending)
 
@@ -63,6 +66,10 @@ function renderList(status) {
         select.addEventListener('change', () => {
             items[index].status = select.value
             saveData()
+
+            select.classList.remove('pendente', 'comprado')
+            select.classList.add(select.value)
+
             renderList()
         })
 
@@ -137,5 +144,5 @@ btnSearch.addEventListener('click', () => filter())
 
 // Marcar como comprado - Salvar esse Estado no localStorage ✅
 // Contador de Itens - Mostras quantos items tem na lista, atualizando em tempo real ✅
-// Adicione filtros para items 'comprados' e 'pendentes'
+// Adicione filtros para items 'comprados' e 'pendentes' ✅
 // Permita ordenar alfabeticamente ou por status
